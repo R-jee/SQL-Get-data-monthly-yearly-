@@ -1,0 +1,52 @@
+$(document).ready(function() {
+/////////////////
+$("#cmt_msg").hide();
+
+ $("#b1_cmt_post").click(function(event){
+
+$.post( "../cmt-ajax-formck.php", $( "#myForm" ).serialize(),function(return_data){
+//alert(return_data.data.cmt_validation_status);
+if(return_data.data.cmt_validation_status=='failed'){
+if(return_data.elements.name =='F'){
+$("#name_d").removeClass('form-group');
+$("#name_d").addClass('form-group has-error');
+}
+else{$("#name_d").removeClass('form-group has-error');
+$("#name_d").addClass('form-group');
+}
+
+if(return_data.elements.email =='F'){
+$("#email_d").removeClass('form-group');
+$("#email_d").addClass('form-group has-error');
+}
+else{$("#email_d").removeClass('form-group has-error');
+$("#email_d").addClass('form-group');
+}
+
+if(return_data.elements.dtl =='F'){$("#dtl_d").removeClass('form-group');
+$("#dtl_d").addClass('form-group has-error');
+}
+else{$("#dtl_d").removeClass('form-group has-error');
+$("#dtl_d").addClass('form-group');
+}
+$("#cmt_msg").removeClass('alert alert-success');
+$("#cmt_msg").addClass('alert alert-danger');
+
+}else{
+////alert(return_data.data.mem_id); //
+$("#myForm")[0].reset();
+$("#cmt_msg").removeClass('alert alert-danger');
+$("#cmt_msg").addClass('alert alert-success');
+
+$("#dtl_d,#email_d,#name_d").removeClass('form-group has-error');
+$("#dtl_d,#email_d,#name_d").addClass('form-group');
+
+}
+
+$("#cmt_msg").html(return_data.data.msg);     
+$("#cmt_msg").show();
+
+},"json");
+});
+////////////////
+});

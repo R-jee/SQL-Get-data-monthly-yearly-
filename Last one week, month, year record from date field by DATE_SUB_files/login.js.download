@@ -1,0 +1,45 @@
+$(document).ready(function() {
+/////////////////
+$('#login_open').click(function(){
+$("#login_w").modal();
+//$('#login_w').show();
+//$("#login_msg").html('');
+//$("#login_msg").hide();
+});
+//////////////////////////////////////////////////////////
+$('#login_b1').click(function(){
+//alert($("#login_t1").val());
+$.post( "../login-layerck.php", { userid: $("#login_t1").val(), pw: $("#login_t2").val() },function(return_data,status){
+$("#login_msg").html('wait ');
+$("#login_msg").show();
+if(return_data.result=='success'){
+$("#lf1").removeClass('form-group has-error');
+$("#lf2").removeClass('form-group has-error');
+
+location.reload();
+}else{
+//alert(return_data.result);
+$("#login_msg").html(return_data.result);
+$("#login_msg").addClass('error');
+$("#login_msg").show();
+$("#lf1").addClass('form-group has-error');
+$("#lf	2").addClass('form-group has-error');
+
+setTimeout(function() { $("#login_msg").fadeOut('slow'); }, 3000);
+}
+       },"json");
+
+
+
+
+
+});
+
+
+
+/////////////////////////////////////////////////////////
+$('#login_b2').click(function(){
+$('#login_w').modal('hide');
+});
+////////////////
+});

@@ -1,0 +1,629 @@
+
+<!-- saved from url=(0055)https://www.plus2net.com/sql_tutorial/date-lastweek.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Last one week, month, year record from date field by DATE_SUB</title>
+<meta name="DESCRIPTION" content="DATE_SUB : Getting the last one week or two month or one year records from MySQL table">
+<meta name="KEYWORDS" content="Last week record, Last month record, CURDATE, DATE_SUB, date range, current records">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./Last one week, month, year record from date field by DATE_SUB_files/bootstrap.min.css" async="">
+
+
+
+<link rel="stylesheet" href="./Last one week, month, year record from date field by DATE_SUB_files/custom.css" type="text/css">
+<style>.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}</style>
+<style type="text/css">#mc_embed_signup input.mce_inline_error { border-color:#6B0505; } #mc_embed_signup div.mce_inline_error { margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff; }</style><meta http-equiv="origin-trial" content="AzoawhTRDevLR66Y6MROu167EDncFPBvcKOaQispTo9ouEt5LvcBjnRFqiAByRT+2cDHG1Yj4dXwpLeIhc98/gIAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A6+nc62kbJgC46ypOwRsNW6RkDn2x7tgRh0wp7jb3DtFF7oEhu1hhm4rdZHZ6zXvnKZLlYcBlQUImC4d3kKihAcAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/9La288e7MDEU2ifusFnMg1C2Ij6uoa/Z/ylwJIXSsWfK37oESIPbxbt4IU86OGqDEPnNVruUiMjfKo65H/CQwAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt" as="script"><script src="./Last one week, month, year record from date field by DATE_SUB_files/f.txt"></script><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt"></script><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt" as="script"><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt"></script><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt" as="script"><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt"></script><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt" as="script"><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt"></script><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt" as="script"><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(1).txt"></script><link rel="preload" href="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt" as="script"><script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/f(2).txt"></script></head><body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="" style="zoom: 1; padding: 0px;" cz-shortcut-listen="true">
+<span itemscope="" itemtype="https://schema.org/WebPage">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.plus2net.com/"><img src="./Last one week, month, year record from date field by DATE_SUB_files/top2.jpg" alt="plus2net.com logo home page"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<span id="breadcrumbs" itemprop="breadcrumb">
+      <ul class="nav navbar-nav">
+
+        <li class="dropdown">
+
+          <a href="https://www.plus2net.com/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">HOME<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+<li><a href="https://www.plus2net.com/">plus2net HOME</a></li>
+            <li><a href="https://www.plus2net.com/php_tutorial/site_map.php">PHP</a></li>
+  					<li><a href="https://www.plus2net.com/javascript_tutorial/site_map.php">JavaScript</a></li>
+<li><a href="https://www.plus2net.com/html_tutorial/site_map.php">HTML</a></li>
+<li><a href="https://www.plus2net.com/python/site_map.php">Python</a></li>
+<li><a href="https://www.plus2net.com/asp-tutorial/site_map.php">ASP</a></li>
+<li><a href="https://www.plus2net.com/jquery/site_map.php">jQuery</a></li>
+<li><a href="https://www.plus2net.com/c-tutorial/site_map.php">C</a></li>
+<li><a href="https://www.plus2net.com/ps-tutorial/index.php">PhotoShop</a></li>
+
+          </ul>
+        </li>
+<li class="dropdown">
+    <a data-target="site_map.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SQL<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+<li><a href="https://www.plus2net.com/sql_tutorial/site_map.php">SQL Home</a></li>
+            <li><a href="https://www.plus2net.com/sql_tutorial/table-records.php">Database Basic</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/php_mysql.php">PHP MySQL</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date.php">Date</a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/math.php">Math</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/sql_select.php">Select</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/sql_insert.php">Insert</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/sql_delete.php">Delete</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/sql_left_join.php">Left Join</a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/string.php">String</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/search-keyword.php">Search</a></li>
+
+          </ul>
+        </li>
+<li class="dropdown"><a href="https://www.plus2net.com/sql_tutorial/date.php" class="list-group-item list-group-item-info" data-toggle="dropdown" role="button" aria-expanded="false">Date Functions<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+<li><a href="https://www.plus2net.com/sql_tutorial/date.php" class="dropdown-item"><b>Date functions</b></a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/between-date.php" class="dropdown-item">BETWEEN</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-curdate.php" class="dropdown-item">CURDATE()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_add.php" class="dropdown-item">DATE_ADD()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-lastweek.php" class="dropdown-item">DATE_SUB()</a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/date-extract.php" class="dropdown-item">EXTRACT()</a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/str_to_date.php" class="dropdown-item">STR_TO_DATE()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_difference.php" class="dropdown-item">TO_DAYS()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_format.php" class="dropdown-item">DATE_FORMAT()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_day.php" class="dropdown-item">DAY()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-dayname.php" class="dropdown-item">DAYNAME()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-dayofweek.php" class="dropdown-item">DAYOFWEEK()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-dayofyear.php" class="dropdown-item">DAYOFYEAR()</a></li>
+
+<li><a href="https://www.plus2net.com/sql_tutorial/date-last_day.php" class="dropdown-item">LAST_DAY()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-makedate.php" class="dropdown-item">MAKEDATE()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_month.php" class="dropdown-item">MONTH()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-monthname.php" class="dropdown-item">MONTHNAME()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-now.php" class="dropdown-item">NOW()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date_year.php" class="dropdown-item">YEAR()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-yearweek.php" class="dropdown-item">YEARWEEK()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-week.php" class="dropdown-item">WEEK()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-weekday.php" class="dropdown-item">WEEKDAY()</a></li>
+<li><a href="https://www.plus2net.com/sql_tutorial/date-weekofyear.php" class="dropdown-item">WEEKOFYEAR()</a></li>
+</ul>
+</li>
+    </ul>      <ul class="nav navbar-nav navbar-right">  <li><a href="https://www.plus2net.com/sql_tutorial/date-lastweek.php#"><span id="login_open">Login</span></a></li><div class="modal fade" id="login_w" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+<div id="login_msg"></div>
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+            <div class="form-group" id="lf1">
+              <label for="login_t1"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" name="login_t1" id="login_t1" placeholder="Userid">
+            </div>
+            <div class="form-group" id="lf2">
+              <label for="login_t2"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" name="login_t2" id="login_t2" placeholder="Enter password">
+            </div>
+
+              <button type="button" class="btn btn-success btn-block" id="login_b1"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" id="login_b2"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Not a member? <a href="https://www.plus2net.com/forum/signup.php">Sign Up</a></p>
+          <p>Forgot <a href="https://www.plus2net.com/forum/forgot.php">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+
+
+<li><a href="https://www.plus2net.com/contactus.php">Contact Us</a></li>
+               </ul>
+    </span></div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+</span>
+<div class="row">
+  <div class="col-md-7 col-md-offset-1"><plus2net_index><div id="body_content" itemscope="" itemtype="https://schema.org/TechArticle"><table><tbody><tr><td>
+<h1 itemprop="headline">DATE_SUB() Getting the recent one month or year records from MySQL table</h1><span itemprop="articleBody">
+<plus2net_index>
+Syntax of  DATE_SUB()
+<pre><code>DATE_SUB(date, INTERVAL, expression, UNIT)</code></pre>
+Example 
+<pre><code>SELECT DATE_SUB(  '2016-12-25', INTERVAL 3 DAY )</code></pre>
+Output is 2016-12-22 <br><br>
+
+We have subtracted three days form the given date by using <i>DATE_SUB()</i> function. In place of DAY we can use Month, year, hour, minute, second  etc , here is the list. 
+
+<table class="table table-striped"> 
+<tbody><tr class="info"><th>unit Value</th><th>Expected expr Format</th><th>Example</th></tr>
+<tr><td>DAY</td><td>DAYS</td><td>DATE_SUB(  '2016-11-29', INTERVAL 10 DAY ) </td></tr>
+<tr><td>MONTH</td><td>MONTHS</td><td>DATE_SUB(  '2015-11-20', INTERVAL 5 MONTH ) </td></tr>
+<tr><td>WEEK</td><td>WEEKS</td><td> DATE_SUB(  '2016-08-20', INTERVAL 5 WEEK )</td></tr>
+<tr><td>QUARTER</td><td>QUARTERS</td><td>DATE_SUB(  '2016-08-20', INTERVAL 2 QUARTER ) </td></tr>
+<tr><td>YEAR</td><td>	YEARS</td><td> DATE_SUB(  '2016-02-23', INTERVAL 2 YEAR ) </td></tr>
+<tr><td>YEAR_MONTH</td><td>	'YEARS-MONTHS'</td><td>DATE_SUB(  '2016-02-23', INTERVAL '2-5' YEAR_MONTH ) </td></tr>
+
+</tbody></table>
+
+
+To use the above  Examples add <i>SELECT</i> at left and run the query. 
+<pre><code>SELECT DATE_SUB( '2016-02-23', INTERVAL 2 YEAR ); // 2014-02-23 
+SELECT DATE_SUB( CURDATE(), INTERVAL 2 YEAR ); // 2018-02-23</code></pre>
+The second query depends on the todays date, so your result will be different. <br>
+Some time we have to collect last 7 or 15 days or X days (or month, year or week) data from MySQL table. 
+
+<br><ul class="list-group">
+  <li class="list-group-item active"><h3>Video Tutorial on Date Query using CURDATE, BETWEEN , YEAR, MONTH, DAYOFWEEK() </h3></li>
+  <li class="list-group-item"><div class="iframe-container"><iframe width="560" height="315" src="./Last one week, month, year record from date field by DATE_SUB_files/jF-xpOELBok.html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> </li>
+</ul><br>
+
+<br><div class="alert alert-danger" role="alert">As we are working on various date function considering todays date, take a fresh copy of <a href="https://www.plus2net.com/sql_tutorial/date-lastweek-dump.php">SQL dump with date column filled with future dates and past dates considering the todays date</a>.<br><br> You may not get any record when searching for last 10 days record by using SQL dump of more than 10 days old. Use this query to get the distribution of date from both sides of today's date.  <br><br>
+<i>SELECT MIN(date),MAX(date) FROM dt_table ;</i> </div><br>
+For example let us find out who are the new members joined in our forum in last week. One shop may be interested in knowing new products added in last one month. What are the books arrived in last one year. Here irrespective of the date values we want the records of last X days from today, or we can say that the records between today and last X days ( month ,  year  or week) are required. 
+<br><br>
+We will use the MySQL function <a href="https://www.plus2net.com/sql_tutorial/date-curdate.php">CURDATE()</a> to get the today's date. 
+<br><br>
+To get the difference in today date and previous day or month we have to use the MySQL function <i>DATE_SUB</i>
+<br><br>
+<i>DATE_SUB</i> is a MySQL function which takes date expression, the interval and the constant to return the date value for further calculation. 
+<br><br>
+Here are some sample queries on how to get the records as per requirements . 
+�<h2>Last 10 days records</h2>
+
+<pre><code>select * from dt_table where  `date` &gt;= DATE_SUB(CURDATE(), INTERVAL 10 DAY)</code></pre> 
+
+
+The above query will return last 10 days records. Note that this query will return all future dates also. To exclude future dates we have to modify the above command a little by using <a href="https://www.plus2net.com/sql_tutorial/sql_between.php">between query</a> to get records. Here is the modified one. 
+<pre><code>SELECT * FROM dt_table WHERE `date` BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 10 DAY ) AND CURDATE( )</code></pre>
+<h2>Present Month Records</h2>
+Starting from 1st day of the current month till now. 
+<pre><code>SELECT * FROM `dt_table` WHERE  date between  DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE()</code></pre>
+<h2>Present Year Records</h2>
+Starting from 1st Jan of the current Year till now. 
+<pre><code>SELECT * FROM `dt_table` WHERE  date between  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE()</code></pre>
+
+<h2>Last one month records</h2>
+Let us try to get records added in last one month 
+
+<pre><code>SELECT * FROM dt_table where  `date` &gt;= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)</code></pre>
+
+Here also future records will be returned so we can take care of that by using <a href="https://www.plus2net.com/sql_tutorial/sql_between.php"><i>BETWEEN</i></a> commands if required. 
+
+<pre><code>SELECT * FROM dt_table WHERE date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 MONTH)  AND CURDATE();</code></pre>
+Using Year 
+<pre><code>select * from dt_table WHERE `date` &gt;= DATE_SUB(CURDATE(), INTERVAL 1 YEAR)</code></pre>
+Using year with BETWEEN
+<pre><code>SELECT * FROM dt_table WHERE date BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 YEAR)  AND CURDATE();</code></pre>
+
+
+<h2>Records of previous month of any year </h2>
+<pre><code>SELECT * FROM  dt_table WHERE MONTH( DATE ) = MONTH( DATE_SUB(CURDATE(),INTERVAL 1 MONTH ))</code></pre>
+<h2>Records of previous month of same year</h2>
+<pre><code>SELECT * FROM  dt_table WHERE MONTH( DATE ) = MONTH( DATE_SUB(CURDATE(),INTERVAL 1 MONTH )) 
+AND 
+YEAR( DATE ) = YEAR( DATE_SUB(CURDATE( ),INTERVAL 1 MONTH ))</code></pre>
+Note the difference between <i>Last one month record</i> and <i>Previous month record</i>
+<h2>Records of two date ranges</h2>
+We can collect records between a particular date ranges by using between command and DATE_SUB. Here are some queries to generate records between two date ranges. 
+
+<pre><code>SELECT * FROM dt_table WHERE `date` BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 3 MONTH ) AND DATE_SUB( CURDATE( ) ,INTERVAL 0 MONTH )</code></pre>
+
+This query will return records between last three months. This query again we will modify to get the records between three moths and six months. 
+<pre><code>SELECT * FROM dt_table WHERE `date` BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 6 MONTH ) AND DATE_SUB( CURDATE( ) ,INTERVAL 3 MONTH )</code></pre>
+
+
+Now let us change this to get records between 6 month and 12 month. 
+<pre><code>SELECT * FROM dt_table WHERE `date` BETWEEN DATE_SUB( CURDATE( ) ,INTERVAL 12  MONTH ) AND DATE_SUB( CURDATE( ) ,INTERVAL 6 MONTH )</code></pre>
+
+With this you can understand how the records between a month range or a year range can be collected from a table.  Note that the months ranges are calculated starting from current day. So if we are collecting records of last three months and we are in 15th day of 9th month then records of  15th day of 6th month we will get but the records of 14th day of 6th month will be returning on next query that is between 3 months and 6 months. 
+
+<h2>Records of present week</h2>
+
+<pre><code>SELECT * FROM `dt_table` WHERE WEEKOFYEAR(date)=WEEKOFYEAR(CURDATE())</code></pre>
+
+<h2>Records of previous week</h2>
+<pre><code>SELECT * FROM `dt_table` WHERE WEEKOFYEAR(date)=WEEKOFYEAR(CURDATE())-1</code></pre>
+<h2>Records of next week</h2>
+<pre><code>SELECT * FROM `dt_table` WHERE WEEKOFYEAR(date)=WEEKOFYEAR(CURDATE())+1</code></pre>
+<h2>Records of present week all working days ( Mon - Fri )</h2>
+<pre><code>SELECT * FROM `dt_table` WHERE WEEKOFYEAR(date)=WEEKOFYEAR(CURDATE()) 
+AND 
+WEEKDAY(date)  BETWEEN 1 AND 5</code></pre>
+<h2>Records of present week all working days till today</h2>
+<pre><code>SELECT * FROM `dt_table` 
+WHERE WEEKOFYEAR( DATE ) = WEEKOFYEAR( CURDATE( ) )
+AND WEEKDAY( DATE ) BETWEEN 1 AND WEEKDAY(CURDATE())</code></pre>
+<nav>
+  <ul class="pager">
+        <li><a href="https://www.plus2net.com/sql_tutorial/date-query-generator.php">Generate Query by using dates from Calendar <span aria-hidden="true">→</span></a></li>
+  </ul>
+</nav>
+<a href="https://www.plus2net.com/sql_tutorial/sql_exercise-date.php" target="new"><button type="button" class="btn btn-danger">Exercise on DATE queries </button></a>
+<h2>Using Date and time Queries</h2>
+<!---start ---->
+Now let us calculate with Time
+<table class="table table-striped "> 
+<tbody><tr class="info"><th>unit Value</th><th>Expected expr Format</th></tr><tr><td colspan="2">Example</td></tr>
+<tr><td>MICROSECOND</td><td>	MICROSECONDS</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL  225 MICROSECOND )</td></tr>
+<tr><td>SECOND</td><td>	SECONDS</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL 2 SECOND ) </td></tr>
+<tr><td>MINUTE</td><td>	MINUTES</td></tr><tr><td colspan="2"> DATE_SUB(  '2016-02-23 20:55:58', INTERVAL 2 MINUTE )</td></tr>
+<tr><td>HOUR</td><td>	HOURS</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL 5 HOUR )</td></tr>
+<tr><td>SECOND_MICROSECOND</td><td>'SECONDS.<br>MICROSECONDS'</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL '1.543' SECOND_MICROSECOND )</td></tr>
+<tr><td>MINUTE_MICROSECOND</td><td>	'MINUTES:<br>SECONDS.<br>MICROSECONDS'</td></tr><tr><td colspan="2"> DATE_SUB<br>(  '2016-02-23 20:55:58', <br>INTERVAL '5:2.743' MINUTE_MICROSECOND ) </td></tr>
+<tr><td>MINUTE_SECOND</td><td>	'MINUTES:<br>SECONDS'</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL '5:2' MINUTE_SECOND ) </td></tr>
+<tr><td>HOUR_MICROSECOND</td><td>	'HOURS:MINUTES:<br>SECONDS.<br>MICROSECONDS'</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:58', INTERVAL '5:2:1.249' HOUR_MICROSECOND)</td></tr>
+<tr><td>HOUR_SECOND</td><td>	'HOURS:MINUTES:<br>SECONDS'</td></tr><tr><td colspan="2"> DATE_SUB(  '2016-02-23 20:55:58', INTERVAL '5:2:1' HOUR_SECOND ) </td></tr>
+<tr><td>HOUR_MINUTE</td><td>	'HOURS:MINUTES'</td></tr><tr><td colspan="2"> DATE_SUB(  '2016-02-23 20:55:52', INTERVAL '5:2' HOUR_MINUTE ) </td></tr>
+<tr><td>DAY_MICROSECOND</td><td>	'DAYS HOURS:<br>MINUTES:<br>SECONDS.<br>MICROSECONDS'</td></tr><tr><td colspan="2"> DATE_SUB(  '2016-02-23 20:55:52', INTERVAL '2 5:2:24.879' DAY_MICROSECOND </td></tr>
+<tr><td>DAY_SECOND</td><td>	'DAYS HOURS:<br>MINUTES:SECONDS'</td></tr><tr><td colspan="2"> DATE_SUB(  '2016-02-23 20:55:52', INTERVAL '2 5:2:24' DAY_SECOND) </td></tr>
+<tr><td>DAY_MINUTE</td><td>	'DAYS HOURS:<br>MINUTES'</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:52', INTERVAL '2 5:2' DAY_MINUTE)</td></tr>
+<tr><td>DAY_HOUR</td><td>	'DAYS HOURS'</td></tr><tr><td colspan="2">DATE_SUB(  '2016-02-23 20:55:52', INTERVAL '2 5' DAY_HOUR)  </td></tr>
+</tbody></table>
+<!---end ---->
+Our sample table <i>dt_table_tm</i> stores  login date with time in a field along with one more column showing event_id. 
+<br><br>
+All records of Last 5 Hours 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE tm&gt;=DATE_SUB(NOW(), INTERVAL 5 HOUR)</code></pre>
+
+All records of Last 48 Hours
+<pre><code>SELECT * FROM `dt_table_tm` WHERE tm&gt;=DATE_SUB(NOW(), INTERVAL 48 HOUR)</code></pre>
+
+All records of 15 hours 12 minutes 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE tm&gt;=DATE_SUB(NOW() , INTERVAL '15:12' HOUR_MINUTE)</code></pre>
+
+In place of <a href="https://www.plus2net.com/sql_tutorial/date-now.php">NOW()</a> we can use specific date and time ( timestamp ) 
+Note : While using date use the format YYYY-mm-dd ( YEAR - Month - date)  and while using time use HH:MM:SS ( Hour : Minutes : Seconds ) 
+<pre><code>SELECT * FROM  `dt_table_tm` WHERE tm &gt;= DATE_SUB( '2018-08-10 11:50:00', INTERVAL '2:18:33' HOUR_SECOND )</code></pre> 
+
+All logins between 9 and 10 hours ( from 9 and 10 both inclusive till it is not 11 ) 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE HOUR(tm) between 9 and 10</code></pre>
+
+All logins betwee 9 and 10 for a perticular month and year
+<pre><code>SELECT * FROM `dt_table_tm` WHERE HOUR(tm) between 9 and 10 and MONTH(tm)=08 and year(tm)=2018</code></pre>
+
+By Using <a href="https://www.plus2net.com/sql_tutorial/date_format.php">date_format()</a> 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE HOUR(tm) between 9 and 10 and date_format(tm,'%Y-%m')='2018-08'</code></pre>
+
+All logins between 11 and 18 hours on a prticular day 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE HOUR(tm) between 11 and 18 and date(tm)='2018-08-09'</code></pre>
+
+All logins between two input times in  hour : minutes : seconds  on a perticular day 
+<pre><code>SELECT * FROM `dt_table_tm` WHERE date(tm)='2018-08-09' AND  TIME(tm) BETWEEN TIME('9:00:00') AND TIME('10:15:00')</code></pre> 
+
+Counting logins at different hours in all days ( using <a href="https://www.plus2net.com/sql_tutorial/date-group-by.php">GROUP BY</a> ) 
+<pre><code>SELECT hour(tm) , count(event_id)   FROM `dt_table_tm` group by HOUR(tm)</code></pre>
+
+First Login ( tm ) of all days. We will use <a href="https://www.plus2net.com/sql_tutorial/sql_group_by.php">GROUP BY</a> and <a href="https://www.plus2net.com/sql_tutorial/sql_min.php">MIN()</a>
+<pre><code>SELECT DATE(tm), MIN(tm),DATE_FORMAT(MIN(tm),'%H : %i :%s') time 
+FROM `dt_table_tm` GROUP BY  DATE(tm) </code></pre>
+First Login of all days after a particular hour. ( HOUR(tm) &gt;16 ) 
+<pre><code>SELECT DATE(tm), MIN(tm),DATE_FORMAT(MIN(tm),'%H : %i :%s') time
+ FROM `dt_table_tm`  WHERE HOUR(tm) &gt; 16 GROUP BY  DATE(tm)  </code></pre> 
+ First login of all days after a particular HOUR Minutes and seconds. 
+ <pre><code>SELECT DATE(tm), MIN(tm),DATE_FORMAT(MIN(tm),'%H : %i :%s') time 
+ FROM `dt_table_tm`  WHERE TIME(tm) &gt; '16:01:00'  GROUP BY  DATE(tm) </code></pre>
+<nav>
+  <ul class="pager">
+
+    <li><a href="https://www.plus2net.com/sql_tutorial/date-query-generator-time.php">Generate Query by selecting date and time <span aria-hidden="true">→</span></a></li>
+  </ul>
+</nav>
+
+<h2>Records of last working days of week</h2>
+Now let us try a different requirement. How to get the records of the working days of the week so far ?  If today is Thursday then records from Monday to Thursday should be returned.<br>
+
+<nav>
+  <ul class="pager">
+        <li><a href="https://www.plus2net.com/sql_tutorial/date-dayofweek.php">Records of working days of this week or previous week. <span aria-hidden="true">→</span></a></li>
+  </ul>
+</nav>
+
+<br><br>
+<h2>Dynamic SQL dump query</h2>
+To test above queries you need to have records of last 15 days or last 6 months ( or 12 Months ).  Any dump created today will not work in future dates ( say after 8 months ) .  So to use above query which involves last 15 days or last 12 months records, we have to generate dump file every day.   <br><br>
+For the SQL with date and time , another table dt_table_tm is used and the dump file can be used . 
+<nav>
+  <ul class="pager">
+        <li><a href="https://www.plus2net.com/sql_tutorial/date-lastweek-dump.php">SQL  dump file  generated based on  date &amp; time to test queries <span aria-hidden="true">→</span></a></li>
+  </ul>
+</nav>
+
+<nav>
+  <ul class="pager">
+    <li><a href="https://www.plus2net.com/sql_tutorial/date.php"><span aria-hidden="true">←</span> SQL Date References</a></li>
+    <li><a href="https://www.plus2net.com/sql_tutorial/between-date.php">Records between two dates  <span aria-hidden="true">→</span></a></li>
+  </ul>
+</nav>
+
+<br><a href="http://www.facebook.com/share.php?u=https://www.plus2net.com/sql_tutorial/date-lastweek.php" target="new"><img src="./Last one week, month, year record from date field by DATE_SUB_files/fb.jpg" width="80" height="79"></a><script src="./Last one week, month, year record from date field by DATE_SUB_files/f(3).txt"></script><script src="./Last one week, month, year record from date field by DATE_SUB_files/f(4).txt" id="google_shimpl"></script><script async="" src="./Last one week, month, year record from date field by DATE_SUB_files/analytics.js.download"></script><script src="./Last one week, month, year record from date field by DATE_SUB_files/platform.js.download" gapi_processed="true"></script>
+</plus2net_index>
+</span>
+<meta itemprop="datePublished" content="2000-02-05T08:00:00+08:00">
+<meta itemprop="image" content="www.plus2net.com/images/top-php.jpg">
+<br><div class="alert alert-success" itemprop="author" itemscope="" itemtype="http://schema.org/Organization"> 
+This article is written by   <strong itemprop="name">plus2net.com</strong> team.
+<span itemprop="url">https://www.plus2net.com</span>
+</div><!-- Begin Mailchimp Signup Form -->
+<link href="./Last one week, month, year record from date field by DATE_SUB_files/classic-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://plus2net.us11.list-manage.com/subscribe/post?u=55e4ddf05ee4bb80923ad93ef&amp;id=0a91996af4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+    <div id="mc_embed_signup_scroll">
+	<h2>Subscribe</h2>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" aria-required="true">
+</div>
+<div class="mc-field-group">
+	<label for="mce-FNAME">First Name </label>
+	<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+	<label for="mce-LNAME">Last Name </label>
+	<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group input-group">
+    <strong>Subscribe to plus2net </strong>
+    <ul></ul>
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_55e4ddf05ee4bb80923ad93ef_0a91996af4" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<script type="text/javascript" src="./Last one week, month, year record from date field by DATE_SUB_files/mc-validate.js.download"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='TRACKING_P';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup--><br>
+<span itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+    <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject">
+      <img src="./Last one week, month, year record from date field by DATE_SUB_files/top2.jpg">
+      <meta itemprop="url" content="https://www.plus2net.com/images/top2.jpg">
+      <meta itemprop="width" content="180">
+      <meta itemprop="height" content="38">
+    </div>
+<strong itemprop="name">plus2net.com</strong>	
+</span><ins class="adsbygoogle" style="display: block; height: 458px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-8896165330199094" data-ad-slot="3850438666" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="border: none; height: 458px; width: 764px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_0_anchor" style="border: none; height: 458px; width: 764px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<br>
+<!-- plus2_all_page_bottom_with_social -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8896165330199094" data-ad-slot="2868400655" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_1_anchor" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+
+<a class="btn btn-primary" data-toggle="collapse" href="https://www.plus2net.com/sql_tutorial/date-lastweek.php#footer_link_group" role="button" aria-expanded="false" aria-controls="footer_link_group" itemprop="mainEntityOfPage"> ▼ More on Date &amp; Time functions in SQL </a>
+<div class="collapse" id="footer_link_group">
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date.php" itemprop="mainEntityOfPage">Date &amp; Time functions used in Query for MySQL Table</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_format.php">Getting formatted date value from date field in MySQL</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_add.php">date_add function to calculate date &amp; time of MySQL table</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-inserting.php">Formatting date and time before adding to date field of MySQL</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/str_to_date.php">String data to Date &amp; time Format by using str_to_date</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-string.php">Formatting string data stored in varchar field to date value</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-updating.php">Automatically updating  / inserting  current date and time value in a DATETIME field</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-group-by.php">Records of each day by using group by command</a><br>
+
+
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/between-date.php">Collecting records between two date ranges from MySQL table fields</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-query-generator.php">Generating query based on user inputs of date from two calendars</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_field_format.php">Getting date values from MYSQL table in readable format including time</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_difference.php">Difference in days between two date fields</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_year.php">Getting the year part from date field</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_month.php">Getting the month part from date field</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date_day.php">Getting the day part from date field</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-records-today.php">Records of today or records of last X seconds by using curdate() or unix_timestamp</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-lastweek.php">Records of last one month from today by using date field</a><br>
+<img src="./Last one week, month, year record from date field by DATE_SUB_files/pt.gif"><a href="https://www.plus2net.com/sql_tutorial/date-dayofweek.php">Records of present week days by using dayofweek function</a><br>
+</div></td></tr><tr><td><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">pushpinder bagga</td><td itemprop="dateCreated" content="2009-05-07"><p class="text-right">07-05-2009</p></td></tr><tr><td colspan="2" itemprop="comment">hello
+I am trying to rum this query concatenated with my php tag cloud generation generation query... I want to fetch tags popular in the week ordered by views... 
+here is the querry ... and its not wroking...
+please help
+
+SELECT tag, views, date FROM tags WHERE date BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE() GROUP BY tag ORDER BY date DESC, RAND() ASC LIMIT 0,20</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">smo</td><td itemprop="dateCreated" content="2009-05-07"><p class="text-right">07-05-2009</p></td></tr><tr><td colspan="2" itemprop="comment">SELECT count(views)as no,tag,date FROM tags WHERE date BETWEEN DATE_SUB(CURDATE(),INTERVAL 7 DAY) AND CURDATE() GROUP BY tag ORDER BY no DESC LIMIT 0,20</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">pushpinder bagga</td><td itemprop="dateCreated" content="2009-05-09"><p class="text-right">09-05-2009</p></td></tr><tr><td colspan="2" itemprop="comment">I am sorry this does'nt work are desired... actually views are for each tag and is an updating value... each time a tag page loads its value is updated by  1 which also determines the font size in tha php tag cloud... please help...
+
+
+I am forced to use this query 
+
+SELECT tag, views, date FROM tags WHERE date &gt;= DATE_SUB(CURDATE(), INTERVAL 7 DAY) GROUP BY tag ORDER BY date DESC, RAND() ASC LIMIT 0,20</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">pushpinder bagga</td><td itemprop="dateCreated" content="2009-05-14"><p class="text-right">14-05-2009</p></td></tr><tr><td colspan="2" itemprop="comment">works
+
+SELECT * FROM $table WHERE disabled='0' AND featured='0' AND recommended='0' AND date BETWEEN DATE_SUB(CURDATE(), INTERVAL 3 DAY) AND CURDATE() ORDER BY comments DESC, views DESC</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">mohsin khan</td><td itemprop="dateCreated" content="2009-08-23"><p class="text-right">23-08-2009</p></td></tr><tr><td colspan="2" itemprop="comment">i got the answer for what i m searching.
+thankyou.</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">casinoonesite.com</td><td itemprop="dateCreated" content="2010-02-03"><p class="text-right">03-02-2010</p></td></tr><tr><td colspan="2" itemprop="comment">I can't understand date &gt;= DATE_SUB(CURDATE(), INTERVAL 7 DAY) gives me the twoo years ago </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">pramod</td><td itemprop="dateCreated" content="2010-11-11"><p class="text-right">11-11-2010</p></td></tr><tr><td colspan="2" itemprop="comment">hello
+i have table which contain date from 1995-01-01 to current date and i want to select only one date in month is there any query in mysql for this problem 
+thanks </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">marcus wilson</td><td itemprop="dateCreated" content="2010-11-15"><p class="text-right">15-11-2010</p></td></tr><tr><td colspan="2" itemprop="comment">This doesnt seem to work for dates stored as a Unix Timestamp</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Dahmane</td><td itemprop="dateCreated" content="2011-10-21"><p class="text-right">21-10-2011</p></td></tr><tr><td colspan="2" itemprop="comment">How do I generate a list of records opened in the last 12 months but only up to the last day of the previous month (i.e. 01.10.201 - 31-09-2011)?
+Many thanks.</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">sachin </td><td itemprop="dateCreated" content="2013-02-15"><p class="text-right">15-02-2013</p></td></tr><tr><td colspan="2" itemprop="comment">NICE EXAMPLE I WAS NOT KNOWN ABOUT INTERVAL AND DATE_SUB Functions</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">sam</td><td itemprop="dateCreated" content="2013-03-23"><p class="text-right">23-03-2013</p></td></tr><tr><td colspan="2" itemprop="comment">i want to show all data only<br>
+ when set specific date and next specific date </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">sam</td><td itemprop="dateCreated" content="2013-03-23"><p class="text-right">23-03-2013</p></td></tr><tr><td colspan="2" itemprop="comment">plz tell query <br>
+how to get specific date to specific date record</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Abdul Qadir</td><td itemprop="dateCreated" content="2013-07-31"><p class="text-right">31-07-2013</p></td></tr><tr><td colspan="2" itemprop="comment">Nice buddy i was in real delima before reading your blog but finally my delima comes to an end after reading this blog and material which required i found it from here. It works!!!!!!!!! :)</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Ramcharan</td><td itemprop="dateCreated" content="2013-08-21"><p class="text-right">21-08-2013</p></td></tr><tr><td colspan="2" itemprop="comment">Good one</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">joseph </td><td itemprop="dateCreated" content="2013-10-13"><p class="text-right">13-10-2013</p></td></tr><tr><td colspan="2" itemprop="comment">I need some help, Generate and run a query that will return the customer number and day of the week for all orders placed in March of 2005.Thank you </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">muthuraj</td><td itemprop="dateCreated" content="2014-03-26"><p class="text-right">26-03-2014</p></td></tr><tr><td colspan="2" itemprop="comment">i want to delete the table records from current date to before 7 days.<br>
+<br>
+what is the query for that?</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">smo</td><td itemprop="dateCreated" content="2014-03-27"><p class="text-right">27-03-2014</p></td></tr><tr><td colspan="2" itemprop="comment">delete from dt_tb where `dt` &gt;= DATE_SUB(CURDATE(), INTERVAL 7 DAY)</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">muthuraj</td><td itemprop="dateCreated" content="2014-04-02"><p class="text-right">02-04-2014</p></td></tr><tr><td colspan="2" itemprop="comment">its working...thank you...smo</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">santosh</td><td itemprop="dateCreated" content="2014-04-09"><p class="text-right">09-04-2014</p></td></tr><tr><td colspan="2" itemprop="comment">how to insert data in  sql every 30 days and 15days its automatically generate</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">satish</td><td itemprop="dateCreated" content="2014-04-10"><p class="text-right">10-04-2014</p></td></tr><tr><td colspan="2" itemprop="comment">its working...thank you very much </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">suresh</td><td itemprop="dateCreated" content="2014-09-05"><p class="text-right">05-09-2014</p></td></tr><tr><td colspan="2" itemprop="comment">viey useful your code thank so mauch<br>
+ </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Rajesh</td><td itemprop="dateCreated" content="2016-02-26"><p class="text-right">26-02-2016</p></td></tr><tr><td colspan="2" itemprop="comment">Hello Sir,<br>
+i want to fetch sum of all  fee which is deposite that date from database table.<br>
+query not work:$rs=mysql_query("select sum(fee) form st where data='$date'";<br>
+Pls. solve my query </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Subhas Ch Paramanick</td><td itemprop="dateCreated" content="2017-01-07"><p class="text-right">07-01-2017</p></td></tr><tr><td colspan="2" itemprop="comment">For Example 7 days leave (LAP) from 01/01/2017 upto 01/07/2017 for XYZ designation JE. In SQL Server record insert LeaveApp table as XYZ, JE, Leave, LAP, 01/01/2017, 01/07/2017 in one line. But I want the record in another table like Attendance table as in row 1 =&gt; XYZ, JE, Leave, LAP, 01/01/2017, 01/01/2017<br>
+In row 2 =&gt; XYZ, JE, Leave, LAP, 01/02/2017, 01/02/2017 In row 3 =&gt; XYZ, JE, Leave, LAP, 01/03/2017, 01/03/2017 and so on upto Last row =&gt; XYZ, JE, Leave, LAP, 01/07/2017, 01/07/2017.<br>
+How to create code in vb.net 2008 or vb.net c# 2008.<br>
+Please Help me in this regards.<br>
+Thanks.</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">Arun</td><td itemprop="dateCreated" content="2018-06-03"><p class="text-right">03-06-2018</p></td></tr><tr><td colspan="2" itemprop="comment">Hi<br>
+<br>
+I have certain data stored in DB in milliseconds. But this was not the format I wanted so I converted it into actual date format. The format is getting updated as a new column during runtime. strftime(MillisField*1000,'%Y %m %d %H:%M:%s') as date.<br>
+<br>
+This returns the actual date and time format in a new column.<br>
+<br>
+But the problem here is if I want the last six months of some particular data, so I tried this:<br>
+<br>
+MillisField &gt; 2017-12-01<br>
+<br>
+It didn't show me the last six months of data, but, if I try this:<br>
+<br>
+MillisField &gt; 1512066600000<br>
+<br>
+it shows the exact result I wanted, but I want to give it in date rather than milliseconds</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">smo1234</td><td itemprop="dateCreated" content="2018-08-10"><p class="text-right">10-08-2018</p></td></tr><tr><td colspan="2" itemprop="comment">Add one more timestamp field to the table, then on a single query update this filed by converting MillsField to required format. Once you are satisfied with the new field and gets the data in desired format , delete the MillsField </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">umair </td><td itemprop="dateCreated" content="2018-09-10"><p class="text-right">10-09-2018</p></td></tr><tr><td colspan="2" itemprop="comment">if want to get the records between from the starting of this month date and  the current date, then what will be the query/condition that time</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator">smo1234</td><td itemprop="dateCreated" content="2018-09-11"><p class="text-right">11-09-2018</p></td></tr><tr><td colspan="2" itemprop="comment">To get first day of the month use DATE_FORMAT(CURDATE() ,'%Y-%m-01'). The complete query is added to the tutorial above. </td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator"></td><td itemprop="dateCreated" content="2021-03-10"><p class="text-right">10-03-2021</p></td></tr><tr><td colspan="2" itemprop="comment">if want to get the records past 10 days after particular 9 clock first record for each day<br>
+please tell me query anyone</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator"></td><td itemprop="dateCreated" content="2021-03-23"><p class="text-right">23-03-2021</p></td></tr><tr><td colspan="2" itemprop="comment">Added this part <br>
+First Login of all days after a particular hour.</td></tr></tbody></table></div><div itemprop="comment" itemscope="" itemtype="https://schema.org/comment"><table class="table table-striped"><tbody><tr><td itemprop="creator"></td><td itemprop="dateCreated" content="2021-12-20"><p class="text-right">20-12-2021</p></td></tr><tr><td colspan="2" itemprop="comment">unbelievably useful to me as I always struggle with date format<br>
+thank you</td></tr></tbody></table></div></td></tr><tr><td><div class="alert alert-danger" id="cmt_msg" style="display: none;"></div><form class="form-horizontal" id="myForm">
+<input type="hidden" id="cmt_todo" name="cmt_todo" value="post_comment">
+<input type="hidden" name="tracking_page_name" id="tracking_page_name" value="S_DtLastWk">
+<p class="bg-info"> Post your comments , suggestion , error , requirements etc here . </p><div class="form-group" id="dtl_d">
+  <label for="inputEmail3" class="col-sm-2 control-label">Detail </label>
+    <div class="col-sm-10">
+<textarea class="form-control" rows="4" name="dtl" id="dtl_cmt"></textarea>
+</div></div>
+<input type="button" id="b1_cmt_post" class="btn btn-default" value="Submit">
+</form>
+</td></tr></tbody></table></div> <link rel="stylesheet" href="./Last one week, month, year record from date field by DATE_SUB_files/jquery.rateyo.min.css">
+<script src="./Last one week, month, year record from date field by DATE_SUB_files/jquery.min.js.download"></script>
+<script src="./Last one week, month, year record from date field by DATE_SUB_files/bootstrap.min.js.download"></script>
+<script async="" src="./Last one week, month, year record from date field by DATE_SUB_files/f(5).txt"></script>
+
+
+</plus2net_index></div><div class="col-md-4">
+
+<!-- plus2_all_pages_right_300x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-8896165330199094" data-ad-slot="5092061864" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_2_expand" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_2_anchor" style="border: none; height: 600px; width: 300px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Last one week, month, year record from date field by DATE_SUB_files/ads.html" data-google-container-id="a!3" data-google-query-id="CKqj6JerrPgCFUvE4Qod_ogGRA" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br>
+
+
+
+<!-- plus2_all_pages_right_336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-8896165330199094" data-ad-slot="8060704669" data-adsbygoogle-status="done" data-ad-status="filled"><ins id="aswift_3_expand" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_3_anchor" style="border: none; height: 280px; width: 336px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:336px;height:280px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Last one week, month, year record from date field by DATE_SUB_files/ads(1).html" data-google-container-id="a!4" data-google-query-id="CNK43ZerrPgCFXfU4QodzdMOFg" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br><br>
+
+<div class="list-group">
+  <a href="https://www.plus2net.com/sql_tutorial/date-lastweek.php#" class="list-group-item active">Queries</a>
+  <a href="https://www.plus2net.com/sql_tutorial/sql_insert.php" class="list-group-item">INSERT</a>
+  <a href="https://www.plus2net.com/sql_tutorial/sql_update.php" class="list-group-item">UPDATE</a> 
+</div>
+
+<div class="list-group">
+  <a href="https://www.plus2net.com/sql_tutorial/date-lastweek.php#" class="list-group-item active">Aggregate Queries</a>
+  <a href="https://www.plus2net.com/sql_tutorial/sql_avg.php" class="list-group-item">AVG ( Average )</a>
+  <a href="https://www.plus2net.com/sql_tutorial/sql_sum.php" class="list-group-item">SUM</a> 
+  <a href="https://www.plus2net.com/sql_tutorial/sql_min.php" class="list-group-item">MIN</a> 
+  <a href="https://www.plus2net.com/sql_tutorial/sql_max.php" class="list-group-item">MAX</a> 
+</div>
+
+<br>
+<a href="https://www.plus2net.com/sql_tutorial/sql-video-tutorials.php" class="btn btn-outline-info"><img src="./Last one week, month, year record from date field by DATE_SUB_files/video.png">SQL Video Tutorials</a>
+<br><br><br><br><br>
+
+<br><a href="https://www.plus2net.com/sql_tutorial/sql_exercise.php"><button type="button" class="btn btn-danger">  SQL Exercise</button></a><br><br><br><br><br></div></div><!--- end of row---><div class="cookiebanner">
+    <div class="cookiebanner-close" style="float: right; padding-left:5px;">✖</div>
+    <span>We use cookies to improve your browsing experience. . <a rel="noopener noreferrer" href="https://www.plus2net.com/cookies.php" target="_blank">Learn more</a></span>
+</div>
+
+<script type="text/javascript" id="cookiebanner" src="./Last one week, month, year record from date field by DATE_SUB_files/cookiebanner.min.js.download" data-height="20px" data-position="top" data-message="We use cookies to improve your browsing experience.">
+</script>
+
+<div class="row bg-warning">
+<span class="col-md-12 col-md-offset-1">
+<table class="table"><tbody><tr><td><a href="https://www.plus2net.com/html_tutorial/site_map.php">HTML</a> 
+</td><td>
+<a href="https://www.plus2net.com/sql_tutorial/site_map.php">MySQL</a>
+</td><td>
+<a href="https://www.plus2net.com/php_tutorial/site_map.php">PHP</a>
+</td><td>
+<a href="https://www.plus2net.com/javascript_tutorial/site_map.php">JavaScript</a>
+</td><td>
+<a href="https://www.plus2net.com/asp-tutorial/site_map.php">ASP</a>
+</td><td>
+<a href="https://www.plus2net.com/ps-tutorial/index.php">Photoshop</a>
+</td><td>
+<a href="https://www.plus2net.com/articles/index.php">Articles</a>
+</td><td>
+<a href="https://www.plus2net.com/forum/index.php">FORUM</a> . 
+<a href="https://www.plus2net.com/contactus.php"><b>Contact us</b></a>
+</td><td>
+</td></tr></tbody></table>
+</span>
+</div>
+
+
+
+<div class="row col-md-12 col-md-offset-1">
+©<span itemprop="copyrightYear">2000-2022 </span> <span itemprop="copyrightHolder">  plus2net.com</span> All rights reserved worldwide <a href="https://www.plus2net.com/privacy.htm">
+Privacy Policy</a>    <a href="https://www.plus2net.com/terms.html" target="new">Disclaimer</a>
+</div>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-621868-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Last one week, month, year record from date field by DATE_SUB_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DXKVCW4XVG');
+</script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8896165330199094",
+    enable_page_level_ads: true
+  });
+</script>
+
+<script src="./Last one week, month, year record from date field by DATE_SUB_files/cmt.js.download" async=""></script>
+<script src="./Last one week, month, year record from date field by DATE_SUB_files/login.js.download" async=""></script>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><ins id="aswift_4_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_4_anchor" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Last one week, month, year record from date field by DATE_SUB_files/ads(2).html" data-google-container-id="a!5" data-load-complete="true"></iframe></ins></ins></ins><div class="cookiebanner" style="position: fixed; left: 0px; right: 0px; height: 20px; min-height: 21px; z-index: 255; background: rgb(0, 0, 0); color: rgb(221, 221, 221); line-height: 21px; padding: 5px 16px; font-family: arial, sans-serif; font-size: 14px; text-align: center; top: 0px; opacity: 1;"><div class="cookiebanner-close" style="float: right; padding-left: 5px; cursor: pointer;">✖</div><span>We use cookies to improve your browsing experience. <a href="http://aboutcookies.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgb(170, 170, 170); font-weight: normal;">Learn more</a></span></div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="dismissed" style="display: none; width: 1366px !important; height: 129px !important; bottom: -124px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-ad-status="filled" data-anchor-shown="true"><ins class="ee" style="inset: auto !important; clear: none !important; display: block !important; float: none !important; height: 5px !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: relative !important; vertical-align: baseline !important; visibility: visible !important; width: auto !important; z-index: 1 !important; background-color: rgb(250, 250, 250) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;"><span style="display: block !important; width: 80px !important; height: 45px !important; bottom: 0px !important; left: 0% !important; pointer-events: none !important;"><svg style="margin: 0px !important; position: absolute !important; bottom: 0px !important; left: 0% !important; display: block !important; width: 80px !important; height: 30px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="dropShadowTop" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M0,26 L0,6 A6,6 0 0,1 6,1 L50,1 A6,6 0 0,1 56,6 L56,20 A6,6 0 0,0 62,26 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#dropShadowTop&quot;);"></path><rect x="0" y="25" width="80" height="5" style="fill: rgb(250, 250, 250);"></rect><g class="down" stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="22" y1="18" x2="28" y2="12"></line><line x1="28" y1="12" x2="34" y2="18"></line></g></svg></span></ins><ins id="aswift_5_expand" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-table !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><ins id="aswift_5_anchor" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_5" name="aswift_5" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Last one week, month, year record from date field by DATE_SUB_files/zrt_lookup.html" data-google-container-id="a!6" data-google-query-id="CLX60K2krPgCFcHw7QodIukDnw" data-load-complete="true"></iframe></ins></ins></ins><iframe src="./Last one week, month, year record from date field by DATE_SUB_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./Last one week, month, year record from date field by DATE_SUB_files/zrt_lookup(1).html" style="display: none;"></iframe><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
