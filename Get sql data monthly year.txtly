@@ -1,0 +1,24 @@
+SELECT 
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND DATE_FORMAT(CURDATE() ,'%Y-01-31')) as 'jan' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-02-01') AND DATE_FORMAT(CURDATE() ,'%Y-02-31')) as 'feb' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-03-01') AND DATE_FORMAT(CURDATE() ,'%Y-03-31')) as 'mar' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-04-01') AND DATE_FORMAT(CURDATE() ,'%Y-04-31')) as 'apr' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-05-01') AND DATE_FORMAT(CURDATE() ,'%Y-05-31')) as 'may' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-06-01') AND DATE_FORMAT(CURDATE() ,'%Y-06-31')) as 'jun' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-07-01') AND DATE_FORMAT(CURDATE() ,'%Y-07-31')) as 'jul' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-08-01') AND DATE_FORMAT(CURDATE() ,'%Y-08-31')) as 'aug' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-09-01') AND DATE_FORMAT(CURDATE() ,'%Y-09-31')) as 'sep' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-10-01') AND DATE_FORMAT(CURDATE() ,'%Y-10-31')) as 'oct' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-11-01') AND DATE_FORMAT(CURDATE() ,'%Y-11-31')) as 'nov' ,
+(SELECT count(*) as `jan` FROM `sections_data` WHERE `sections_data`.created_at  between  DATE_FORMAT(CURDATE() ,'%Y-12-01') AND DATE_FORMAT(CURDATE() ,'%Y-12-31')) as 'dec' ;
+
+$db_res_points_earn_yearly = $db->prepare("SELECT *
+  FROM sections_data
+  LEFT JOIN apply_template_data
+  ON sections_data.id = apply_template_data.section_id WHERE apply_template_data.is_applyed = 1 AND approved_status= 1 AND sections_data.published_by = '$email__' AND `sections_data`.created_at between DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE() ");
+ 
+ $db_res_points_earn_monthly = $db->prepare("SELECT *
+  FROM sections_data
+  LEFT JOIN apply_template_data
+  ON sections_data.id = apply_template_data.section_id WHERE apply_template_data.is_applyed = 1 AND approved_status= 1 AND sections_data.published_by = '$email__' AND `sections_data`.created_at between DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE() ");
+  
